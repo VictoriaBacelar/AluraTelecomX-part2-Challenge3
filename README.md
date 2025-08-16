@@ -71,6 +71,8 @@ Principais fatores que influenciam o churn:
 - Incentivar contratos mais longos com descontos ou benefícios.
 - Criar campanhas direcionadas para clientes recentes ou com baixo gasto diário.
 - Promover serviços adicionais para aumentar engajamento e retenção.
+
+---
 ##Tecnologias Utilizadas
 
 - Python
