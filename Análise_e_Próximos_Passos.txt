@@ -1,0 +1,56 @@
+# Análise de Evasão de Clientes - Telecom X
+
+## 📌 Introdução
+Este projeto tem como objetivo analisar o comportamento de evasão (churn) dos clientes da Telecom X. A análise explora padrões de cancelamento, identifica fatores que influenciam a retenção e fornece recomendações estratégicas baseadas nos dados.
+
+##Limpeza e Tratamento de Dados
+- Importação dos dados via API/CSV em formato JSON.
+- Conversão para DataFrame do Pandas.
+- Tratamento de valores nulos e duplicados.
+- Expansão de colunas que possuíam dicionários em múltiplas colunas.
+- Conversão de colunas numéricas para `float`.
+- Padronização da coluna `Churn` para valores binários (`yes`/`no`).
+
+## 📊 Análise Exploratória de Dados
+- Distribuição de clientes por status de evasão (`Churn`):
+  - No: 5174 (73%)
+  - Yes: 1869 (27%)
+- Clientes `month-to-month` apresentam maior taxa de evasão.
+- Clientes com menor tempo de contrato e menor gasto diário têm maior tendência a cancelar.
+- Serviços adicionais (como online backup, tech support, streaming) podem influenciar a retenção.
+
+### Visualizações
+- Boxplots e scatter plots de `customer_tenure` e `Contas_Diarias` versus `Churn`.
+- Matriz de correlação para identificar variáveis mais relevantes para evasão.
+
+## 🤖 Modelos Preditivos
+Foram treinados dois modelos diferentes para prever churn:
+
+1. **Regressão Logística**
+   - Requer normalização das variáveis.
+   - Avaliação:
+     - Acurácia: 0.78
+     - Recall da classe `yes`: 0.28
+     - Precisão: 0.72
+   - Insight: bom para entender o efeito das variáveis por meio dos coeficientes.
+
+2. **Random Forest**
+   - Não requer normalização.
+   - Avaliação:
+     - Acurácia: 0.78
+     - Recall da classe `yes`: 0.46
+     - Precisão: 0.63
+   - Insight: permite identificar a importância das variáveis na previsão de evasão.
+
+## 📈 Importância das Variáveis
+Principais fatores que impactam a evasão:
+- Tipo de contrato (`month-to-month`)
+- Tempo de contrato (`customer_tenure`)
+- Gasto diário (`Contas_Diarias`)
+- Serviços adicionais contratados (backup, tech support, streaming)
+
+
+## ⚙️ Próximos Passos
+- Testar modelos adicionais como KNN, SVM e XGBoost.
+- Ajustar hiperparâmetros para melhorar recall da classe `yes`.
+- Implementar pipeline de ML para previsões contínuas de evasão.
